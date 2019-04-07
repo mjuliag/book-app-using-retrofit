@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/book_background"
+
+    android:paddingBottom="13dp">
+
+    <TextView
+        android:id="@+id/bookTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="13dp"
+        android:text="Book title"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/bookAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bookTitle"
+        android:layout_alignStart="@+id/bookTitle"
+        android:layout_alignLeft="@+id/bookTitle"
+        android:text="Author"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/publisher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/bookTitle"
+        android:layout_alignEnd="@+id/publishedDate"
+        android:layout_alignRight="@+id/publishedDate"
+        android:text="Publisher"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/publishedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/publisher"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp"
+        android:text="Published Date"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bookAuthor"
+        android:layout_alignStart="@+id/bookAuthor"
+        android:layout_alignLeft="@+id/bookAuthor"
+        android:layout_marginTop="18dp"
+        android:text="Description" />
+
+
+</RelativeLayout>
