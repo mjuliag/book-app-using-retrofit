@@ -14,7 +14,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<Book> bookList;
+    private ArrayList<VolumeInfo> volumeInfoList;
     private ProgressDialog dialog;
 
     @Override
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.setMessage("Loading...");
         dialog.show();
 
-        BooksAdapter adapter = new BooksAdapter(bookList);
+        BooksAdapter adapter = new BooksAdapter(volumeInfoList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
 
-                    bookList = response.body().getBooks();
+                    volumeInfoList = response.body().getVolumeInfo();
                 }
             }
 

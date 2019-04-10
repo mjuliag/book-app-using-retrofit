@@ -7,15 +7,27 @@ import java.util.ArrayList;
 
 public class BookList {
 
+    @SerializedName("")
+    @Expose
+    private ArrayList<BookResponse> bookResponse = null;
     @SerializedName("items")
     @Expose
-    private ArrayList<Book> books = null;
+    private ArrayList<Item> items = null;
+    @SerializedName("volumeInfo")
+    @Expose
+    private ArrayList<VolumeInfo> volumeInfo = null;
 
-    public ArrayList<Book> getBooks() {
-        return books;
+    public ArrayList<BookResponse> getBookResponse() {
+        return bookResponse;
     }
 
-    public void setBooks(ArrayList<Book> books) {
-        this.books = books;
+    public ArrayList<Item> getItems() {
+        return items;
     }
+
+    public ArrayList<VolumeInfo> getVolumeInfo() {
+        return volumeInfo;
+    }
+
+
 }
