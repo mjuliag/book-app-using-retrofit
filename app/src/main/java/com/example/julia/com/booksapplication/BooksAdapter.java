@@ -12,8 +12,8 @@ import java.util.List;
 public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.CustomViewHolder> {
     private List<Book> books;
 
-    public BooksAdapter(List<Book> employees) {
-        this.books = employees;
+    public BooksAdapter(List<Book> books) {
+        this.books = books;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.CustomViewHo
         Book book = books.get(position);
         holder.bookTitle.setText(book.getTitle());
         holder.publisher.setText(book.getPublisher());
-        holder.bookAuthor.setText(book.getAuthors());
+        holder.bookAuthor.setText(book.getAuthors().get(0));
         holder.publishedDate.setText(book.getPublishedDate());
         holder.description.setText(book.getDescription());
     }

@@ -5,14 +5,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetroClient {
 
-    /********
-     * URLS
-     *******/
-    private static final String ROOT_URL = "https://www.googleapis.com/books/v1/volumes?q=android&maxResults=4";
+    private static final String ROOT_URL = "https://www.googleapis.com/books/v1/";
 
-    /**
-     * Get Retrofit Instance
-     */
     private static Retrofit getRetrofitInstance() {
         return new Retrofit.Builder()
                 .baseUrl(ROOT_URL)
@@ -20,11 +14,6 @@ public class RetroClient {
                 .build();
     }
 
-    /**
-     * Get API Service
-     *
-     * @return API Service
-     */
     public static ApiService getApiService() {
         return getRetrofitInstance().create(ApiService.class);
     }

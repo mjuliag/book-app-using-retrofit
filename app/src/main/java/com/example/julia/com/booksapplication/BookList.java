@@ -7,15 +7,15 @@ import java.util.ArrayList;
 
 public class BookList {
 
-    @SerializedName("item")
+    @SerializedName("items")
     @Expose
-    private ArrayList<Book> book = null;
+    private ArrayList<Book> books = null;
 
-    public ArrayList<Book> getBook() {
-        return book;
+    public ArrayList<Book> getBooks() {
+        return books;
     }
 
-    public void setBook(ArrayList<Book> book) {
-        this.book = book;
+    public void setBooks(ArrayList<Book> books) {
+        this.books = books;
     }
 }
