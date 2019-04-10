@@ -10,9 +10,9 @@ import java.util.List;
 
 
 public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.CustomViewHolder> {
-    private List<VolumeInfo> volumeInfos;
+    private List<Item> volumeInfos;
 
-    public BooksAdapter(List<VolumeInfo> volumeInfos) {
+    public BooksAdapter(List<Item> volumeInfos) {
         this.volumeInfos = volumeInfos;
     }
 
@@ -26,7 +26,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.CustomViewHo
 
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
-        VolumeInfo volumeInfo = volumeInfos.get(position);
+        VolumeInfo volumeInfo = volumeInfos.get(position).getVolumeInfo();
         holder.bookTitle.setText(volumeInfo.getTitle());
         holder.publisher.setText(volumeInfo.getPublisher());
         holder.bookAuthor.setText(volumeInfo.getAuthors().get(0));

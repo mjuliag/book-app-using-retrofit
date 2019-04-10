@@ -5,5 +5,5 @@ import retrofit2.http.GET;
 
 public interface ApiService {
     @GET("volumes?q=android&maxResults=1")
-    Call<BookList> getMyJSON();
+    Call<BookResponse> getMyJSON();
 }

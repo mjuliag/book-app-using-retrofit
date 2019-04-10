@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -14,14 +15,14 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<VolumeInfo> volumeInfoList;
+    private List<Item> volumeInfoList;
     private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        final RecyclerView recyclerView = findViewById(R.id.recycler_view);
 
         ApiService api = RetroClient.getApiService();
 
@@ -29,26 +30,27 @@ public class MainActivity extends AppCompatActivity {
         dialog.setMessage("Loading...");
         dialog.show();
 
-        BooksAdapter adapter = new BooksAdapter(volumeInfoList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapter);
 
-        Call<BookList> call = api.getMyJSON();
-        call.enqueue(new Callback<BookList>() {
+        Call<BookResponse> call = api.getMyJSON();
+        call.enqueue(new Callback<BookResponse>() {
             @Override
-            public void onResponse(Call<BookList> call, Response<BookList> response) {
+            public void onResponse(Call<BookResponse> call, Response<BookResponse> response) {
                 dialog.dismiss();
 
                 if (response.isSuccessful()) {
 
-                    volumeInfoList = response.body().getVolumeInfo();
+                    volumeInfoList = response.body().getItems();
+                    BooksAdapter adapter = new BooksAdapter(volumeInfoList);
+                    recyclerView.setAdapter(adapter);
+
                 }
             }
 
             @Override
-            public void onFailure(Call<BookList> call, Throwable t) {
+            public void onFailure(Call<BookResponse> call, Throwable t) {
                 dialog.dismiss();
             }
         });
