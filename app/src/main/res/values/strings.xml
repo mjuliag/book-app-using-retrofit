@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Books Application</string>
+    <string name="search_hint">I need those seeds Julia</string>
 </resources>
